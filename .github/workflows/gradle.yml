@@ -18,3 +18,5 @@ jobs:
         distribution: 'corretto'
     - name: Build with Gradle
       run: ./gradlew clean build
+    - name: Print version
+      run: echo ${GITHUB_REF}
