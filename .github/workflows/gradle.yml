@@ -1,6 +1,8 @@
 name: Java CI with Gradle
 
-on: [push]
+on:
+  release:
+    types: [published]
 
 jobs:
   build-project:
@@ -19,4 +21,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
     - name: Print version
-      run: echo ${GITHUB_REF}
+      run: |
+        NEW_VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
+        echo "New version: ${NEW_VERSION}"
+        echo "Github username: ${GITHUB_ACTOR}"
+        ./gradlew -Pversion=${NEW_VERSION} publish
