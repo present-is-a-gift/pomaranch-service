@@ -1,8 +1,6 @@
 name: Java CI with Gradle
 
-on:
-  release:
-    types: [published]
+on: [push]
 
 jobs:
   build-project:
