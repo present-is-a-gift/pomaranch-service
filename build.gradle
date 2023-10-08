@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id "com.google.protobuf" version "0.9.4"
+    id 'org.springframework.boot' version '3.1.4'
+    id 'io.spring.dependency-management' version '1.1.3'
+}
+
+group = 'com.pomaranch'
+version = '0.0.1'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    repositories {
+        maven {
+            name = "git-packages"
+            url = uri("https://maven.pkg.github.com/ivanvirchenko/pomaranch-proto")
+            credentials {
+                username = System.getenv("GH_USER")
+                password = System.getenv("GH_TOKEN")
+            }
+        }
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'com.pomaranch:service-proto:0.0.1'
+    implementation 'net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
