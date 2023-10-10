@@ -14,10 +14,11 @@ jobs:
     - name: Export variable version
       run: |
         VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
-        export VERSION=${VERSION}
+        export VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
     - name: Print version
       run: |
         echo $VERSION
+        echo ${VERSION}
     # - name: Checkout the code
     #   uses: actions/checkout@v3
 
