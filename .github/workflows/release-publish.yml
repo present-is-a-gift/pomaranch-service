@@ -10,15 +10,14 @@ jobs:
     env:
       GH_USER: ${{ vars.GH_USER }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      VERSION: "1.1"
     steps:
     - name: Export variable version
       run: |
-        VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
-        export VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
+        SET VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
     - name: Print version
       run: |
         echo $VERSION
-        echo ${VERSION}
     # - name: Checkout the code
     #   uses: actions/checkout@v3
 
