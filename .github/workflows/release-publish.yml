@@ -33,5 +33,5 @@ jobs:
       run: |
         NEW_VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
         echo "New version ${NEW_VERSION}"
-        docker build -t ghcr.io/present-is-a-gift/pomaranch-service:${NEW_VERSION} .
-        docker push ghcr.io/present-is-a-gift/pomaranch-service:${NEW_VERSION}
+        docker build -t ghcr.io/present-is-a-gift/pomaranch-service/pomaranch-service:${NEW_VERSION} .
+        docker push ghcr.io/present-is-a-gift/pomaranch-service/pomaranch-service:${NEW_VERSION}
