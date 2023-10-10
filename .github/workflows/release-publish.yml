@@ -8,8 +8,8 @@ jobs:
   publish-release:
     runs-on: ubuntu-latest
     env:
-      GH_USER: ${{ vars:GH_USER }}
-      GH_TOKEN: ${{ secrets:GH_TOKEN }}
+      GH_USER: ${{ vars.GH_USER }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
       VERSION: $(echo "${GITHUB_REF}" | cut -d "/" -f3)
     steps:
     - name: Checkout the code
