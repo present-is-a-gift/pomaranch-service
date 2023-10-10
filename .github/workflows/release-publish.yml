@@ -1,5 +1,5 @@
 name: Java CI with Gradle
-run-name: Push release to the ghcr.io
+run-name: Publish release
 on:
   release:
     types: [published]
