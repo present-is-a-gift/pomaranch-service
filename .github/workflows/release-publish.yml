@@ -14,7 +14,7 @@ jobs:
     steps:
     - name: Export variable version
       run: |
-        SET VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
+        set VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
     - name: Print version
       run: |
         echo $VERSION
