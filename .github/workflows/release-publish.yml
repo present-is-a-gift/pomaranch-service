@@ -12,9 +12,13 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - name: Export variable version
-      run: VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
+      run: |
+        VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
+        export VERSION=${VERSION}
     - name: Print version
-      run: echo ${VERSION}
+      run: |
+        echo "VARIABLE ${VERSION}"
+        echo "ENV $VERSION"
     # - name: Checkout the code
     #   uses: actions/checkout@v3
 
