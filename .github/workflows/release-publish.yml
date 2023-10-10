@@ -30,8 +30,8 @@ jobs:
         registry: ghcr.io
         username: ${{ vars.GH_USER }}
         password: ${{ secrets.GH_TOKEN }}
-    # - name: Build and push
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #     push: true
-    #     tags: present-is-a-gift/pomaranch-service:$VERSION
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: present-is-a-gift/pomaranch-service:$VERSION
