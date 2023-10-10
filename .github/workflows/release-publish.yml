@@ -17,8 +17,7 @@ jobs:
         export VERSION=${VERSION}
     - name: Print version
       run: |
-        echo $(echo "${GITHUB_REF}" | cut -d "/" -f3)
-        echo "ENV $VERSION"
+        echo $VERSION
     # - name: Checkout the code
     #   uses: actions/checkout@v3
 
