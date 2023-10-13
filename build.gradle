@@ -7,7 +7,7 @@ plugins {
 }
 
 archivesBaseName='pomaranch-service'
-group = 'com.pomaranch'
+group = 'com.pomaranch.shop'
 version = '1.0'
 
 java {
